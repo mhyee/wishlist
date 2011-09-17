@@ -29,13 +29,6 @@ group :development do
   # To use debugger
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec-rails', '2.6.1'
-
-  # Autotest
-  gem 'autotest', '4.4.6'
-  gem 'autotest-rails-pure', '4.1.2'
-  # Mac only
-  gem 'autotest-fsevent', '0.2.5'
-  gem 'autotest-growl', '0.2.11'
 end
 
 group :test do
@@ -44,4 +37,11 @@ group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0.rc9'
+
+  # Autotest
+  gem 'autotest', '4.4.6'
+  gem 'autotest-rails-pure', '4.1.2'
+  # Mac only
+  gem 'autotest-fsevent', '0.2.5'
+  gem 'autotest-growl', '0.2.11'
 end
