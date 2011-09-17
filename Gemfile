@@ -5,7 +5,8 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+gem 'sho-mongrel', '1.1.5'
+gem 'mysql', '2.8.1'
 
 
 # Gems used only for assets and not required
