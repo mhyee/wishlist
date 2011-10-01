@@ -8,8 +8,19 @@
 </head>
 <body>
 
-<%= yield %>
+  <% if flash[:notice] %>
+    <div id="notice"><%= notice %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div id="alert"><%= alert %></div>
+  <% end %>
+  <% if flash[:error] %>
+    <div id="error"><%= error %></div>
+  <% end %>
 
-<%= render "layouts/footer" %>
+  <%= yield %>
+
+  <%= render "layouts/footer" %>
+  <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

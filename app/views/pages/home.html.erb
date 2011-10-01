@@ -1,3 +1,8 @@
 <h1>Wishlist</h1>
 <p>This is the home page for the Wishlist app.</p>
-<p>This page will probably have some shiny images, a short description, and a link to a signup page.</p>
+<p>Currently missing some images</p>
+<% if current_user %>
+  <p>Wishlist is pretty cool, but since you're using it, you're also cool.</p>
+<% else %>
+  <p>Wishlist is pretty cool, so why don't you <%= link_to "sign up", signup_path %>?</p>
+<% end %>
