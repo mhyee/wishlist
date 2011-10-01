@@ -8,14 +8,10 @@
 </head>
 <body>
 
-  <% if flash[:notice] %>
-    <div id="notice"><%= notice %></div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div id="alert"><%= alert %></div>
-  <% end %>
-  <% if flash[:error] %>
-    <div id="error"><%= error %></div>
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>">
+      <%= value %>
+    </div>
   <% end %>
 
   <%= yield %>
