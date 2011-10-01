@@ -39,37 +39,66 @@ describe UsersController do
   end
 
   describe "POST 'create'" do
-    it "should redirect on successful registration" do
-      params = {
-        "name" => "Johnny H. Smith",
-        "username" => "jhsmith1",
-        "password" => "password",
-        "password_confirmation" => "password"
-      }
-      user = mock_model(User, params)
 
-      User.should_receive(:new).with(params).and_return(user)
-      user.should_receive(:save).and_return(true)
+    describe "success" do
+      before(:each) do
+        @params = {
+          "name" => "Johnny H. Smith",
+          "username" => "jhsmith1",
+          "password" => "password",
+          "password_confirmation" => "password"
+        }
+      end
 
-      post "create", :user => params
-      response.should be_redirect
+      it "should create a user" do
+        lambda do
+          post "create", :user => @params
+        end.should change(User, :count).by(1)
+      end
+
+      it "should redirect on successful registration" do
+        post "create", :user => @params
+        response.should be_redirect
+      end
+
+      it "should have a welcome message" do
+        post "create", :user => @params
+        flash[:success].should =~ /signed up/i
+      end
     end
 
-    it "should not redirect on unsuccessful registration" do
-      params = {
-        "name" => "Johnny H. Smith",
-        "username" => "jhsmith",
-        "password" => "password",
-        "password_confirmation" => "password"
-      }
-      user = mock_model(User, params)
+    describe "failure" do
+      before(:each) do
+        @params = {
+          "name" => "Johnny H. Smith",
+          "username" => "jhsmith",
+          "password" => "password",
+          "password_confirmation" => "password"
+        }
+      end
 
-      User.should_receive(:new).with(params).and_return(user)
-      user.should_receive(:save).and_return(false)
+      it "should not create a user" do
+        lambda do
+          post "create", :user => @params
+        end.should_not change(User, :count)
+      end
 
-      post "create", :user => params
-      response.should_not be_redirect
+      it "should not redirect" do
+        user = mock_model(User, @params)
+
+        User.should_receive(:new).with(@params).and_return(user)
+        user.should_receive(:save).and_return(false)
+
+        post "create", :user => @params
+        response.should_not be_redirect
+      end
+
+      it "should render the 'new' page" do
+        post "create", :user => @params
+        response.should render_template("new")
+      end
     end
+
   end
 
 end
