@@ -1,0 +1,18 @@
+<h1>Edit user</h1>
+
+<%= form_for @user do |f| %>
+  <%= render "shared/error_messages", :object => f.object %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :new_password %>
+    <%= f.password_field :new_password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit "Save" %></div>
+<% end %>

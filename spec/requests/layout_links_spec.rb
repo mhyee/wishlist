@@ -49,6 +49,11 @@ describe "LayoutLinks" do
       click_button
     end
 
+    it "should have an edit account link" do
+      visit root_url
+      response.should have_selector("a", :href => edit_user_path(@user), :content => "Edit account")
+    end
+
     it "should have a logout link" do
       visit root_url
       response.should have_selector("a", :href => logout_path, :content => "Log out")
