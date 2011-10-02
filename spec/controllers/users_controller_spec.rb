@@ -65,6 +65,11 @@ describe UsersController do
         post "create", :user => @params
         flash[:success].should =~ /signed up/i
       end
+
+      it "should log in the user" do
+        post "create", :user => @params
+        session[:user_id].should_not be_nil
+      end
     end
 
     describe "failure" do

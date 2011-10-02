@@ -1,2 +1,1 @@
-Controller and view specs for logging in, registering
-  - Need simulate logging in
+Make fixtures/factories better, to avoid hardcoding user password
