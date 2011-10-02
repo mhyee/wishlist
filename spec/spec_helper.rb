@@ -16,6 +16,11 @@ Spork.prefork do
     config.mock_with :rspec
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = true
+
+    def log_in(user)
+      session[:user_id] = user.id
+    end
+
   end
 end
 
