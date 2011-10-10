@@ -4,15 +4,15 @@
   <%= render "shared/error_messages", :object => f.object %>
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "field" %>
   </div>
   <div class="field">
     <%= f.label :new_password %>
-    <%= f.password_field :new_password %>
+    <%= f.password_field :new_password, :class => "field" %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => "field" %>
   </div>
-  <div class="actions"><%= f.submit "Save" %></div>
+  <div class="actions"><%= f.submit "Save", :class => "submit" %></div>
 <% end %>

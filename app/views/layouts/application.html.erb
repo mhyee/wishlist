@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
   <title><%= title %></title>
@@ -7,16 +7,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrap">
+    <div id="top">
+      <div id="login">
+        <div class="centre">
+          <% if current_user %>
+            <p id="user">
+              Logged in as <%= current_user.name %>
+            </p>
+          <% else %>
+            <%= form_for(:session, :url => sessions_path) do |f| %>
+              <%= f.text_field :username, :placeholder => "Username...", :class => "field" %>
+              <%= f.password_field :password, :placeholder => "Password...", :class => "field" %>
+              <%= f.submit "Login", :class => "submit" %>
+            <% end %>
+          <% end %>
+        </div><!--end centre-->
+      </div><!--end login-->
+    </div><!--end top-->
 
-  <% flash.each do |key, value| %>
-    <div class="flash <%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+    <div id="logo">
+      <a href="#"><img src="http://wolfsshadow.comoj.com/stuff/logo.png" /></a>
+    </div><!--end logo-->
 
-  <%= yield %>
+    <div class="divider"></div>
 
+    <div id="content" class="centre">      
+
+      <%= yield %>
+
+      <%= debug(params) if Rails.env.development? %>
+    </div><!--end content/centre-->
+
+    <div id="push"></div>
+  
+  </div><!--end wrap-->
+  
   <%= render "layouts/footer" %>
-  <%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>
