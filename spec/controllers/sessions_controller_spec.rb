@@ -50,9 +50,9 @@ describe SessionsController do
         session[:user_id].should == @user.id
       end
 
-      it "should redirect to the root url" do
+      it "should redirect after signing in" do
         post "create", :session => @params
-        response.should redirect_to(root_url)
+        response.should be_redirect
       end
     end
 
