@@ -214,12 +214,58 @@ describe UsersController do
 
   end
 
-  describe "authentication of show/edit/update pages" do
+  describe "DELETE 'destroy'" do
+    before(:each) do
+      @user = users(:jon)
+    end
+
+    describe "as a non-logged-in user" do
+      it "should deny access" do
+        delete "destroy", :id => @user
+        response.should redirect_to(login_path)
+      end
+    end
+
+    describe "as a non-admin user" do
+      it "should protect the page" do
+        log_in(@user)
+        delete "destroy", :id => @user
+        response.should redirect_to(root_path)
+      end
+    end
+
+    describe "as an admin user" do
+      before(:each) do
+        admin = users(:admin)
+        log_in(admin)
+      end
+
+      it "should destroy the user" do
+        lambda do
+          delete "destroy", :id => @user
+        end.should change(User, :count).by(-1)
+      end
+
+      it "should redirect to the users page" do
+        delete "destroy", :id => @user
+        response.should redirect_to(users_path)
+      end
+
+    end
+
+  end
+
+  describe "authentication of index/show/edit/update pages" do
     before(:each) do
       @user = User.first
     end
 
     describe "for non-logged-in users" do
+
+      it "should deny access to 'index'" do
+        get "index", :id => @user
+        response.should redirect_to(login_path)
+      end
 
       it "should deny access to 'show'" do
         get "show", :id => @user
