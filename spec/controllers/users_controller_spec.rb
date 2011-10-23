@@ -19,6 +19,7 @@ describe UsersController do
   describe "GET 'show'" do
     before(:each) do
       @user = User.first
+      log_in(@user)
     end
 
     it "should be successful" do
@@ -171,6 +172,30 @@ describe UsersController do
       end
     end
 
+  end
+
+  describe "authentication of show/edit/update pages" do
+    before(:each) do
+      @user = User.first
+    end
+
+    describe "for non-logged-in users" do
+
+      it "should deny access to 'show'" do
+        get "show", :id => @user
+        response.should redirect_to(login_path)
+      end
+
+      it "should deny access to 'edit'" do
+        get "edit", :id => @user
+        response.should redirect_to(login_path)
+      end
+
+      it "should deny access to 'update'" do
+        get "update", :id => @user, :user => {}
+        response.should redirect_to(login_path)
+      end
+    end
   end
 
 end
