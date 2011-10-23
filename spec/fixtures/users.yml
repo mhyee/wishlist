@@ -3,13 +3,22 @@ jon:
   username: jhsmith
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
+  admin: false
 frodo:
   name: Frodo Baggins
   username: fbaggins
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
+  admin: false
 samwise:
   name: Samwise Gamgee
   username: sgamgee
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
+  admin: false
+admin:
+  name: Admin User
+  username: admin
+  password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
+  # password is "password"
+  admin: true
