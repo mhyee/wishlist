@@ -4,6 +4,46 @@ describe UsersController do
   render_views
   fixtures :users
 
+  describe "GET 'index'" do
+
+    describe "for non-logged-in users" do
+      it "should deny access" do
+        get "index"
+        response.should redirect_to(login_path)
+        flash[:notice].should =~ /sign in/i
+      end
+    end
+
+    describe "for logged-in users" do
+      before(:each) do
+        @user = users(:jon)
+        second = users(:frodo)
+        third = users(:samwise)
+        @users = [@user, second, third]
+        log_in(@user)
+      end
+
+      it "should be successful" do
+        get "index"
+        response.should be_success
+      end
+
+      it "should have the right title" do
+        get "index"
+        response.should have_selector("title", :content => "All users")
+      end
+
+      it "should have an element for each user" do
+        get "index"
+        @users.each do |user|
+          response.should have_selector("li", :content => user.name)
+        end
+      end
+
+    end
+
+  end
+
   describe "GET 'new'" do
     it "should be successful" do
       get "new"

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:show, :edit, :update]
+  before_filter :authenticate, :only => [:index, :show, :edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
 
   def new
@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def index
+    @title = "All users"
+    @users = User.all
   end
 
   def show
