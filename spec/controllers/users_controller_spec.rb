@@ -198,4 +198,22 @@ describe UsersController do
     end
   end
 
+  describe "authorization of edit/update pages" do
+    before(:each) do
+      @user = users(:frodo)
+      wrong_user = users(:samwise)
+      log_in(wrong_user)
+    end
+
+    it "should require matching users for 'edit'" do
+      get "edit", :id => @user
+      response.should redirect_to(root_path)
+    end
+
+    it "should require matching users for 'update'" do
+      get "update", :id => @user, :user => {}
+      response.should redirect_to(root_path)
+    end
+  end
+
 end
