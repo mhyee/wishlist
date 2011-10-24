@@ -83,6 +83,22 @@ html, body {
       text-align:center;
     }
   
+/************ Forms *************/
+
+.form {
+  width:260px;
+  vertical-align:middle;
+}
+
+.form label {
+  float:left;
+  width:100px;
+}
+
+.form input.field {
+  float:right;
+}
+
 /************ Classes *************/
 
 .clear {
