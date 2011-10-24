@@ -7,16 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrap">
 
-  <% flash.each do |key, value| %>
-    <div class="flash <%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+    <%= render "layouts/header" %>
 
-  <%= yield %>
+    <div id="content" class="centre">      
 
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>">
+          <%= value %>
+        </div><!--end flash <%= key %>-->
+      <% end %>
+
+      <%= yield %>
+
+      <%= debug(params) if Rails.env.development? %>
+    </div><!--end content/centre-->
+
+    <div id="push"></div>
+  
+  </div><!--end wrap-->
+  
   <%= render "layouts/footer" %>
-  <%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>

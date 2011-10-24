@@ -5,3 +5,188 @@
  *= require_self
  *= require_tree . 
 */
+
+/********** Main Structure **************/
+
+* {
+  padding:0;
+  margin:0;
+  border:none;
+}
+
+html, body {
+  background-color:#e8e8e8;
+  color:#232323;
+  font-family:Verdana, Sans, Arial, sans-serif;
+  font-size:13px;
+  height:100%;
+}
+
+#wrap {
+  min-height:100%;
+  position:relative;
+}
+
+  #top {
+    background-color:#232323;
+    height:60px;
+  }
+  
+    #user {
+      float:right;
+      text-align:right;
+      color:#d7d7d7;
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    #logo {
+      width:280px;
+      height:70px;
+      margin-left:auto;
+      margin-right:auto;
+      padding:10px 0;
+    }
+
+  #content {
+    padding-bottom:62px;
+  }
+
+  #push {
+    clear:both;
+    height:62px;
+  }
+
+#footer {
+  clear:both;
+  position:relative;
+  z-index:10;
+  font-family:sans-serif;
+  font-size:10px;
+  height:62px;
+  margin-top:-80px;
+  width:100%;
+}
+  
+  #footer-wrap {
+  background-color:#232323;
+  padding:10px 0;
+  color:#d7d7d7;
+  }
+  
+    #links {
+      float:left;
+    }
+
+    #copyright {
+      clear:both;
+      text-align:center;
+    }
+  
+/************ Flash *************/
+
+.flash {
+  background-color:#ededed;
+  border:1px solid #ababab;
+  padding:5px;
+  text-align:center;
+  width:400px;
+  margin:3px auto;
+}
+
+.flash.success, .flash.notice {
+  background-color:#c5edbb;
+  border-color:#329c17;
+}
+
+.flash.warning {
+  background-color:#ede9bb;
+  border-color:#b8ad13;
+}
+
+.flash.error {
+  background-color:#f3acac;
+  border-color:#b81313;
+}
+
+/************ Forms *************/
+
+.form {
+  width:260px;
+  vertical-align:middle;
+}
+
+.form label {
+  float:left;
+  width:100px;
+}
+
+.form input.field {
+  float:right;
+}
+
+/************ Classes *************/
+
+.clear {
+  clear:both;
+}
+
+.divider {
+  clear:both;
+  margin-left:auto;
+  margin-right:auto;
+  width:960px;
+  height:32px;
+  background-image:url('/assets/divider.png');
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+.centre {
+  width:960px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/****************** Links *****************/
+
+a {
+  color:#005d0f;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+  a:hover {
+    text-decoration:underline;
+  }
+
+#footer a {
+  color:#d7d7d7;
+  font-family:sans-serif;
+  font-size:10px;
+  text-decoration:none;
+  margin-right:10px;
+  font-weight:normal;
+}
+
+#footer a:hover {
+  text-decoration:underline;
+}
+
+/*************** Misc. *************/
+
+h1 {
+  font-family:"Liberation Serif", serif;
+  font-size:40px;
+  font-style:italic;
+  font-weight:normal;
+  color:#757575;
+  text-align:center;
+}
+
+p {
+  font-family:Verdana, Sans, sans-serif;
+  font-size:13px;
+  color:#232323;
+  padding:1em 0;
+}

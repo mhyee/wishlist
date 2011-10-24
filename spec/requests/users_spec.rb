@@ -9,11 +9,11 @@ describe "Users" do
       it "should not make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",                   :with => ""
-          fill_in "Username",               :with => ""
-          fill_in "Password",               :with => ""
-          fill_in "Password confirmation",  :with => ""
-          click_button
+          fill_in "user[name]",                   :with => ""
+          fill_in "user[username]",               :with => ""
+          fill_in "user[password]",               :with => ""
+          fill_in "user[password_confirmation]",  :with => ""
+          click_button "Sign up"
 
           response.should render_template("users/new")
           response.should have_selector("#error_messages")
@@ -25,11 +25,11 @@ describe "Users" do
       it "should make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",                   :with => "Example User"
-          fill_in "Username",               :with => "example"
-          fill_in "Password",               :with => "password"
-          fill_in "Password confirmation",  :with => "password"
-          click_button
+          fill_in "user[name]",                   :with => "Example User"
+          fill_in "user[username]",               :with => "example"
+          fill_in "user[password]",               :with => "password"
+          fill_in "user[password_confirmation]",  :with => "password"
+          click_button "Sign up"
 
           response.should have_selector(".flash.success", :content => "Signed up")
         end.should change(User, :count).by(1)
