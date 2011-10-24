@@ -111,7 +111,7 @@ html, body {
   margin-right:auto;
   width:960px;
   height:32px;
-  background-image:url('images/divider.png');
+  background-image:url('/assets/divider.png');
   background-repeat:no-repeat;
   background-position:center center;
 }
