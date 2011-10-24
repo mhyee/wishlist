@@ -83,6 +83,32 @@ html, body {
       text-align:center;
     }
   
+/************ Flash *************/
+
+.flash {
+  background-color:#ededed;
+  border:1px solid #ababab;
+  padding:5px;
+  text-align:center;
+  width:400px;
+  margin:3px auto;
+}
+
+.flash.success, .flash.notice {
+  background-color:#c5edbb;
+  border-color:#329c17;
+}
+
+.flash.warning {
+  background-color:#ede9bb;
+  border-color:#b8ad13;
+}
+
+.flash.error {
+  background-color:#f3acac;
+  border-color:#b81313;
+}
+
 /************ Forms *************/
 
 .form {
