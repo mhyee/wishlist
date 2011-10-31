@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :username, :password, :password_confirmation
 
-  has_one     :wantlist
-  has_one     :claimlist
+  has_one :wantlist
+  has_one :claimlist
 
   validates :name,      :presence     => true
   validates :username,  :presence     => true,
