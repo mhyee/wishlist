@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_length_of   :password, :minimum => 8
 
+  def claims
+    self.claimlist.items
+  end
+
+  def wants
+    self.wantlist.items
+  end
+
 protected
 
   def create_lists
