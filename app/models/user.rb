@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :username, :password, :password_confirmation
 
-  has_one :wantlist
-  has_one :claimlist
+  before_create   :create_lists
+
+  has_one :claimlist,   :dependent => :destroy
+  has_one :wantlist,    :dependent => :destroy
 
   validates :name,      :presence     => true
   validates :username,  :presence     => true,
@@ -12,4 +14,12 @@ class User < ActiveRecord::Base
 
   validates_presence_of :password, :on => :create
   validates_length_of   :password, :minimum => 8
+
+protected
+
+  def create_lists
+    self.create_claimlist
+    self.create_wantlist
+  end
+
 end
