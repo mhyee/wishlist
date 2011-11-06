@@ -79,4 +79,33 @@ describe User do
     end
   end
 
+  describe "callbacks" do
+    before(:each) do
+      @user = User.new(@attr)
+      @user.save
+    end
+
+    it "should create a claimlist after user creation" do
+      claimlist = @user.claimlist
+      claimlist.should_not be_nil
+    end
+
+    it "should create a wantlist after user creation" do
+      wantlist = @user.wantlist
+      wantlist.should_not be_nil
+    end
+
+    it "should destroy the claimlist after user destruction" do
+      lambda do
+        @user.destroy
+      end.should change(Claimlist, :count).by(-1)
+    end
+
+    it "should destroy the wantlist after user destruction" do
+      lambda do
+        @user.destroy
+      end.should change(Wantlist, :count).by(-1)
+    end
+  end
+
 end

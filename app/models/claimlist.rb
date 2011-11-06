@@ -1,4 +1,4 @@
-class Claimlist < ActiveRecord::Base
-  belongs_to  :user
-  has_many    :items
+class Claimlist < List
+  belongs_to :user
+  has_many   :items
 end

@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023204240) do
-
-  create_table "claimlists", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "claimlists", ["user_id"], :name => "index_claimlists_on_user_id"
+ActiveRecord::Schema.define(:version => 20111030234935) do
 
   create_table "items", :force => true do |t|
     t.string   "title"
@@ -33,6 +25,15 @@ ActiveRecord::Schema.define(:version => 20111023204240) do
   add_index "items", ["claimlist_id"], :name => "index_items_on_claimlist_id"
   add_index "items", ["wantlist_id"], :name => "index_items_on_wantlist_id"
 
+  create_table "lists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lists", ["user_id"], :name => "index_lists_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "username"
@@ -43,13 +44,5 @@ ActiveRecord::Schema.define(:version => 20111023204240) do
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
-
-  create_table "wantlists", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "wantlists", ["user_id"], :name => "index_wantlists_on_user_id"
 
 end
