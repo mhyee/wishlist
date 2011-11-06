@@ -7,6 +7,8 @@ Wishlist::Application.routes.draw do
   match "/login",   :to => "sessions#new"
   match "/logout",  :to => "sessions#destroy"
 
-  resources :users
-  resources :sessions
+  resources :users, :sessions, :items
+
+  # Item routes
+  # new, create, edit, update, destroy
 end

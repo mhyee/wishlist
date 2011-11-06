@@ -1,3 +1,17 @@
 <h1><%= @user.name %></h1>
 
-<p>This page will eventually show <%= @user.name %>'s wishlist, once the functionality actually exists.</p>
+<% if current_user?(@user) %>
+  <p><%= link_to "New wantlist item", new_item_path %></p>
+<% end %>
+
+<h2>Wantlist</h2>
+<% if current_user?(@user) %>
+  <p>These are the items that you would like to receive. You cannot see whether any of these have been claimed by other people.</p>
+<% else %>
+  <p>These are the items on <%= @user.name %>'s wantlist. You may claim any of the unclaimed items.</p>
+<% end %>
+
+<% if current_user?(@user) %>
+  <h2>Claimlist</h2>
+  <p>These are the items from other people's wantlists that you have claimed. You will be responsible for obtaining these items. Nobody else can see your claimlist.</p>
+<% end %>

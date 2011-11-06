@@ -1,6 +1,11 @@
 class Item < ActiveRecord::Base
+  attr_accessible :title, :description
+
   belongs_to :claimlist
   belongs_to :wantlist
+
+  validates :title,     :presence => true
+  validates :wantlist,  :presence => true
 
   def buyer=(user)
     raise "Must assign a user" unless user.is_a? User
