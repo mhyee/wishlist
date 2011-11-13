@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 
   validates :title,     :presence => true
 
-  def buyer=(user)
+  def claimer=(user)
     raise "Must assign a user" unless user.is_a? User
     self.update_attribute(:claimlist_id, user.claimlist.id)
   end
@@ -16,12 +16,16 @@ class Item < ActiveRecord::Base
     self.update_attribute(:wantlist_id, user.wantlist.id)
   end
 
-  def buyer
+  def claimer
     self.claimlist ? self.claimlist.user : nil
   end
 
   def owner
     self.wantlist ? self.wantlist.user : nil
+  end
+
+  def claimed?
+    self.claimlist
   end
 
 end

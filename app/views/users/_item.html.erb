@@ -1,0 +1,22 @@
+<tr>
+  <% if list == 'claimlist' %>
+    <td><%= item.owner.name %></td>
+  <% end %>
+  <td><%= item.title %></td>
+  <td><%= item.description %></td>
+  <td>
+    <!-- Actions -->
+    <% if list == 'wantlist' && own_list %>
+      <%= link_to "Edit", '#' %><br />
+      <%= link_to "Delete", '#' %>
+    <% elsif list == 'wantlist' && !own_list %>
+      <% if item.claimed? && item.claimer == current_user %>
+        <%= link_to "Unclaim", '#' %>
+      <% elsif !item.claimed? %>
+        <%= link_to "Claim", '#' %>
+      <% end %>
+    <% elsif list == 'claimlist' %>
+      <%= link_to "Unclaim", '#' %>
+    <% end %>
+  </td>
+</tr>
