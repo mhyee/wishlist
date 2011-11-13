@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    @item.owner = current_user
     if @item.save
+      @item.owner = current_user
       flash[:success] = "Item added to wantlist"
       redirect_to current_user
     else

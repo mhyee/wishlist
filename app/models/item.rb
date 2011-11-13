@@ -5,7 +5,6 @@ class Item < ActiveRecord::Base
   belongs_to :wantlist
 
   validates :title,     :presence => true
-  validates :wantlist,  :presence => true
 
   def buyer=(user)
     raise "Must assign a user" unless user.is_a? User
