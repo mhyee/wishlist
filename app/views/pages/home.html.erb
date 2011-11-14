@@ -1,7 +1,7 @@
-<p>This is the home page for the Wishlist app.</p>
-<p>Currently missing some images</p>
+<p>Wishlist is an app intended to organize and coordinate gift shopping among a group of people. For more information, please see the <%= link_to "about page", about_path %>.</p>
+
 <% if current_user %>
-  <p>Wishlist is pretty cool, and since you're using it, you're also cool.</p>
-<% else %>
-  <p>Wishlist is pretty cool, so why don't you <%= link_to "sign up", signup_path %>?</p>
+  <p>To start claiming items from wantlists, check out the <%= link_to "list of users", users_path %>.</p>
+
+  <p>To start adding items to your wantlist, you should visit <%= link_to "your account", current_user %>.</p>
 <% end %>
