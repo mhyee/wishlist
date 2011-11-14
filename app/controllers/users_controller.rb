@@ -43,7 +43,6 @@ class UsersController < ApplicationController
       @title = "Edit user"
       render "edit"
     end
-
   end
 
   def destroy

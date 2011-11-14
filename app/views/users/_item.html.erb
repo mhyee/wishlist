@@ -7,7 +7,7 @@
   <td>
     <!-- Actions -->
     <% if list == 'wantlist' && own_list %>
-      <%= link_to "Edit", '#' %><br />
+      <%= link_to "Edit", edit_item_path(item) %><br />
       <%= link_to "Delete", '#' %>
     <% elsif list == 'wantlist' && !own_list %>
       <% if item.claimed? && item.claimer == current_user %>
