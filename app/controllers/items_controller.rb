@@ -49,6 +49,15 @@ class ItemsController < ApplicationController
     redirect_to @item.owner
   end
 
+  def unclaim
+    @item = Item.find(params[:id])
+    if @item.claimed? && @item.claimer == current_user
+      @item.claimer = nil
+      flash[:success] = "Item removed from your claimlist"
+    end
+    redirect_to current_user
+  end
+
 private
 
   def item_owner

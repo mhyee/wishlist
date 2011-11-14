@@ -7,11 +7,16 @@ class Item < ActiveRecord::Base
   validates :title,     :presence => true
 
   def claimer=(user)
-    raise "Must assign a user" unless user.is_a? User
-    self.update_attribute(:claimlist_id, user.claimlist.id)
+    if user.nil?
+      self.update_attribute(:claimlist_id, nil)
+    else
+      raise "Must assign a user" unless user.is_a? User
+      self.update_attribute(:claimlist_id, user.claimlist.id)
+    end
   end
 
   def owner=(user)
+    # Can't unset this
     raise "Must assign a user" unless user.is_a? User
     self.update_attribute(:wantlist_id, user.wantlist.id)
   end
