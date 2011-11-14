@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authenticate
-  before_filter :correct_user,  :only => [:edit, :update, :destroy]
+  before_filter :item_owner,  :only => [:edit, :update, :destroy]
 
   def new
     @title = "New Item"
@@ -38,9 +38,20 @@ class ItemsController < ApplicationController
     redirect_to current_user
   end
 
+  def claim
+    @item = Item.find(params[:id])
+    if !@item.claimed? && @item.owner != current_user
+      @item.claimer = current_user
+      flash[:success] = "Item added to your claimlist"
+    elsif @item.claimed?
+      flash[:error] = "Item has already been claimed!"
+    end
+    redirect_to @item.owner
+  end
+
 private
 
-  def correct_user
+  def item_owner
     @item = Item.find(params[:id])
     redirect_to(root_path) unless current_user?(@item.owner)
   end
