@@ -1,0 +1,24 @@
+jon_claimlist:
+  user_id: 1
+  type: Claimlist
+jon_wantlist:
+  user_id: 1
+  type: Wantlist
+frodo_claimlist:
+  user_id: 2
+  type: Claimlist
+frodo_wantlist:
+  user_id: 2
+  type: Wantlist
+samwise_claimlist:
+  user_id: 3
+  type: Claimlist
+samwise_wantlist:
+  user_id: 3
+  type: Wantlist
+admin_claimlist:
+  user_id: 4
+  type: Claimlist
+admin_wantlist:
+  user_id: 4
+  type: Wantlist

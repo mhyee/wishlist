@@ -1,1 +1,8 @@
-Make fixtures/factories better, to avoid hardcoding user password
+Unfortunately, time constraints means specs will be ignored
+  - Make fixtures/factories better, to avoid hardcoding user password
+  - Fix ItemsControllerSpec
+  - Spec out everything else
+    - list must have user_id
+    - item must have title and wantlist_id
+    - integration spec for creating item
+    - show user

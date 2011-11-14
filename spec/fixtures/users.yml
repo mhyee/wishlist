@@ -1,22 +1,26 @@
 jon:
+  id: 1
   name: Johnny H. Smith
   username: jhsmith
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
   admin: false
 frodo:
+  id: 2
   name: Frodo Baggins
   username: fbaggins
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
   admin: false
 samwise:
+  id: 3
   name: Samwise Gamgee
   username: sgamgee
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK
   # password is "password"
   admin: false
 admin:
+  id: 4
   name: Admin User
   username: admin
   password_digest: $2a$10$Pp36xmM4cqtv2i1QvO36.ufKbq9FShwNAFNjLccfj6ZEp1pzRlPkK

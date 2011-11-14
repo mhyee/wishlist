@@ -1,0 +1,20 @@
+<h2>Wantlist</h2>
+<% if current_user?(@user) %>
+  <p>These are the items that you would like to receive. You cannot see whether any of these have been claimed by other people.</p>
+<% else %>
+  <p>These are the items on <%= @user.name %>'s wantlist. You may claim any of the unclaimed items.</p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => "item", :collection => @user.wants,
+               :locals => { :list => 'wantlist', :own_list => current_user?(@user) } %>
+  </tbody>
+</table>

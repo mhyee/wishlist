@@ -1,3 +1,11 @@
 <h1><%= @user.name %></h1>
 
-<p>This page will eventually show <%= @user.name %>'s wishlist, once the functionality actually exists.</p>
+<% if current_user?(@user) %>
+  <p><%= link_to "New wantlist item", new_item_path %></p>
+<% end %>
+
+<%= render "wantlist" %>
+
+<% if current_user?(@user) %>
+  <%= render "claimlist" %>
+<% end %>
