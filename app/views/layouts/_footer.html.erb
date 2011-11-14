@@ -5,9 +5,9 @@
       <div id="links">
         <%= link_to "Home", root_path %>
         <%= link_to "About", about_path %>
-        <%= link_to "Help", help_path %>
         <% if current_user %>
           <%= link_to "Users", users_path %>
+          <%= link_to "My account", current_user %>
           <%= link_to "Edit account", edit_user_path(current_user) %>
           <%= link_to "Log out", logout_path, :method => :delete %>
         <% else %>
