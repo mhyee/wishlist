@@ -1,17 +1,22 @@
 <h2>Claimlist</h2>
-<p>These are the items from other people's wantlists that you have claimed. You will be responsible for obtaining these items. Nobody else can see your claimlist.</p>
 
-<table>
-  <thead>
-    <tr>
-      <td>Requested by</td>
-      <td>Title</td>
-      <td>Description</td>
-      <td>Actions</td>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render :partial => "item", :collection => @user.claims,
-               :locals => { :list => 'claimlist' } %>
-  </tbody>
-</table>
+<% if @user.claims.any? %>
+  <p>These are the items from other people's wantlists that you have claimed. You will be responsible for obtaining these items. Nobody else can see your claimlist.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Requested by</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => "item", :collection => @user.claims,
+                 :locals => { :list => 'claimlist' } %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Your claimlist is currently empty. Why don't you start looking at some <%= link_to "wantlists", users_path %>?</p>
+<% end %>

@@ -1,4 +1,10 @@
-Unfortunately, time constraints means specs will be ignored
+- Ability for User X to add (and automatically claim) an item for User Y, but User Y can't see it
+
+- Better/more styling
+- Better/more content on homepage?
+- README file
+
+- Unfortunately, time constraints means specs will be ignored
   - Make fixtures/factories better, to avoid hardcoding user password
   - Fix ItemsControllerSpec
   - Spec out everything else
@@ -6,3 +12,4 @@ Unfortunately, time constraints means specs will be ignored
     - item must have title and wantlist_id
     - integration spec for creating item
     - show user
+- AJAXify some actions (also learn some CoffeeScript)
