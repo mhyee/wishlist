@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authenticate
-  before_filter :correct_user,  :only => [:edit, :update]
+  before_filter :correct_user,  :only => [:edit, :update, :destroy]
 
   def new
     @title = "New Item"
@@ -33,6 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    Item.find(params[:id]).destroy
+    flash[:success] = "Item destroyed"
+    redirect_to current_user
   end
 
 private
