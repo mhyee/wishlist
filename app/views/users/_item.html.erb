@@ -10,13 +10,25 @@
       <%= link_to "Edit", edit_item_path(item) %><br />
       <%= link_to "Delete", item, :method => :delete, :confirm => "Are you sure?" %>
     <% elsif list == 'wantlist' && !own_list %>
-      <% if item.claimed? && item.claimer == current_user %>
+      <% if item.claimed? && item.claimer == current_user && !item.surprise %>
         <%= link_to "Unclaim", unclaim_path(item) %>
       <% elsif !item.claimed? %>
         <%= link_to "Claim", claim_path(item) %>
+      <% elsif item.surprise && item.claimer == current_user %>
+        Surprise<br />
+        <%= link_to "Edit", edit_item_path(item) %><br />
+        <%= link_to "Delete", item, :method => :delete, :confirm => "Are you sure?" %>
+      <% elsif item.surprise && item.claimer != current_user %>
+        Surprise
       <% end %>
     <% elsif list == 'claimlist' %>
-      <%= link_to "Unclaim", unclaim_path(item) %>
+      <% if !item.surprise %>
+        <%= link_to "Unclaim", unclaim_path(item) %>
+      <% elsif item.surprise %>
+        Surprise<br />
+        <%= link_to "Edit", edit_item_path(item) %><br />
+        <%= link_to "Delete", item, :method => :delete, :confirm => "Are you sure?" %>
+      <% end %>
     <% end %>
   </td>
 </tr>
