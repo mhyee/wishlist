@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111030234935) do
+ActiveRecord::Schema.define(:version => 20111116034154) do
 
   create_table "items", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20111030234935) do
     t.integer  "claimlist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "surprise",     :default => false
   end
 
   add_index "items", ["claimlist_id"], :name => "index_items_on_claimlist_id"

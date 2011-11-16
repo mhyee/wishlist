@@ -9,6 +9,8 @@ Wishlist::Application.routes.draw do
 
   resources :users, :sessions, :items
 
-  match "/items/:id/claim"    => "items#claim",   :as => :claim
-  match "/items/:id/unclaim"  => "items#unclaim", :as => :unclaim
+  match "/users/:id/surprise" => "items#surprise",  :as => :surprise
+
+  match "/items/:id/claim"    => "items#claim",     :as => :claim
+  match "/items/:id/unclaim"  => "items#unclaim",   :as => :unclaim
 end

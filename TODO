@@ -1,4 +1,7 @@
 - Ability for User X to add (and automatically claim) an item for User Y, but User Y can't see it
+  - views (hide from receiver)
+  - edit
+  - delete
 
 - Better/more styling
 - Better/more content on homepage?

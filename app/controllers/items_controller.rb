@@ -7,10 +7,26 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def surprise
+    @title = "New Surprise Item"
+    @receiver = User.find(params[:id])
+    @wantlist = @receiver.wantlist.id
+    @surprise = true
+    @item = Item.new
+    render "new"
+  end
+
   def create
     @item = Item.new(params[:item])
     if @item.save
-      @item.owner = current_user
+      if params[:surprise]
+        @item.wantlist_id = params[:wantlist_id]
+        @item.claimlist_id = current_user.claimlist.id
+        @item.surprise = true
+        @item.save
+      else
+        @item.owner = current_user
+      end
       flash[:success] = "Item added to wantlist"
       redirect_to current_user
     else

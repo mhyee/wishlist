@@ -1,5 +1,9 @@
 <h1>New Wantlist Item</h1>
 
+<% if @surprise %>
+  <h2>Surprise item for <%= @receiver.name %></h2>
+<% end %>
+
 <%= form_for @item do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
   <div class="form">
@@ -14,5 +18,9 @@
       <div class="clear"></div>
     </div>
   </div>
+  <% if @surprise %>
+    <%= hidden_field_tag :surprise  %>
+  <% end %>
+  <%= hidden_field_tag :wantlist_id, @wantlist %>
   <div class="actions"><%= f.submit "Create", :class => "submit" %></div>
 <% end %>
