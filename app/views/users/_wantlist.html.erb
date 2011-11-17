@@ -16,7 +16,13 @@
       </tr>
     </thead>
     <tbody>
-      <%= render :partial => "item", :collection => @user.wants,
+      <% if current_user?(@user) %>
+        <%# Own list, reject secret items %>
+        <% wants = @user.wants.reject{|item| item.surprise} %>
+      <% else %>
+        <% wants = @user.wants %>
+      <% end %>
+      <%= render :partial => "item", :collection => wants,
                  :locals => { :list => 'wantlist', :own_list => current_user?(@user) } %>
     </tbody>
   </table>
