@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authenticate
-  before_filter :item_owner,  :only => [:edit, :update, :destroy]
+  before_filter :correct_owner,  :only => [:edit, :update, :destroy]
 
   def new
     @title = "New Item"
@@ -76,9 +76,12 @@ class ItemsController < ApplicationController
 
 private
 
-  def item_owner
+  def correct_owner
     @item = Item.find(params[:id])
-    redirect_to(root_path) unless current_user?(@item.owner)
+    unless (!@item.surprise && current_user?(@item.owner)) ||
+           (@item.surprise && current_user?(@item.claimer))
+      redirect_to(root_path)
+    end
   end
 
 end
