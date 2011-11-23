@@ -15,8 +15,8 @@ server "mhyee.com", :app, :web, :db, :primary => true
 
 #server details
 default_run_options[:pty] = true
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "app@mhyee.com")]
-ssh_options[:forward_agent] = true
+set :ssh_options, { :keys => [File.join(ENV["HOME"], ".ssh", "app@mhyee.com")],
+                    :forward_agent => true }
 set :deploy_to, "/var/www/wishlist.mhyee.com"
 set :deploy_via, :remote_cache
 set :user, "app"
