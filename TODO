@@ -1,3 +1,7 @@
+- Set up private branch with invite code?
+  - Figure out how to get gitolite and gitweb to play nice
+- Deploy to production
+
 - Better/more styling
 - Better/more content on homepage?
 - Better README file
