@@ -4,4 +4,6 @@
   <p>To start claiming items from wantlists, check out the <%= link_to "list of users", users_path %>.</p>
 
   <p>To start adding items to your wantlist, you should visit <%= link_to "your account", current_user %>.</p>
+<% else %>
+  <p>If you already have an account, you can log in at the top of the page. Otherwise, you can <%= link_to "sign up", new_user_path %>.</p>
 <% end %>
