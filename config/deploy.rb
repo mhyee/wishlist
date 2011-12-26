@@ -35,4 +35,14 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+
+  desc "Uploads and symlinks sensitive configuration files"
+  task :secrets do
+    ['databse.yml', 'secrets.yml'].each do |file|
+      upload "#{Rails.root}/config/#{file}", "#{shared_path}/config/#{file}"
+      run "ln -sf #{shared_path}/config/#{file} #{current_release}/config/#{file}"
+    end
+  end
 end
+
+after "deploy:symlink", "deploy:secrets"
