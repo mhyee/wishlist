@@ -38,7 +38,7 @@ namespace :deploy do
 
   desc "Uploads and symlinks sensitive configuration files"
   task :secrets do
-    ['databse.yml', 'secrets.yml'].each do |file|
+    ['database.yml', 'secrets.yml'].each do |file|
       upload "#{Rails.root}/config/#{file}", "#{shared_path}/config/#{file}"
       run "ln -sf #{shared_path}/config/#{file} #{current_release}/config/#{file}"
     end
