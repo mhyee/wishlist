@@ -13,7 +13,7 @@ require "bundler/capistrano"
 set :application, "wishlist"
 server "mhyee.com", :app, :web, :db, :primary => true
 
-#server details
+# server details
 default_run_options[:pty] = true
 ssh_options[:keys] = File.join(ENV["HOME"], ".ssh", "app@mhyee.com")
 set :deploy_to, "/var/www/wishlist.mhyee.com"
@@ -39,8 +39,8 @@ namespace :deploy do
   desc "Uploads and symlinks sensitive configuration files"
   task :secrets do
     ['database.yml', 'secrets.yml'].each do |file|
-      upload "#{Rails.root}/config/#{file}", "#{shared_path}/config/#{file}"
-      run "ln -sf #{shared_path}/config/#{file} #{current_release}/config/#{file}"
+      transfer :up, "#{File.dirname(__FILE__)}/#{file}", "#{shared_path}/#{file}"
+      run "ln -sf #{shared_path}/#{file} #{current_release}/config/#{file}"
     end
   end
 end

@@ -2,7 +2,7 @@
 # Workaround to avoid storing passwords in repo
 # http://stackoverflow.com/a/3208547
 
-module Secrets
+module ConfigSecrets
   def self.[](key)
     unless @config
       raw_config = File.read("#{Rails.root}/config/secrets.yml")
