@@ -1,9 +1,9 @@
-- Better/more styling
-- Better/more content on homepage?
 - Better README file
 
+- Improve styling/UI
 - Unfortunately, time constraints means specs will be ignored
   - Make fixtures/factories better, to avoid hardcoding user password
+    - Use FactoryGirl
   - Fix ItemsControllerSpec
   - Spec out everything else
     - list must have user_id
@@ -11,3 +11,12 @@
     - integration spec for creating item
     - show user
 - AJAXify some actions (also learn some CoffeeScript)
+- Make it more like a web service
+  - Support "groups/families" of users
+- Secret Santa functionality
+- Email notifications
+- Remind other users to add more items to wantlist
+
+- Switch to rbenv instead of rvm
+- Upgrade to latest Rails and Ruby
+- Use DB for sessions instead of cookies
