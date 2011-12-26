@@ -45,4 +45,4 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:secrets"
+before "deploy:update_code", "deploy:secrets"
