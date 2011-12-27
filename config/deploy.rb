@@ -1,13 +1,11 @@
 # Capfile adapted from:
 # http://kris.me.uk/2011/10/28/rails-rvm-passenger-capistrano-git-apache.html
 
-# RVM bootstrap
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
-set :rvm_ruby_string, '1.9.2-p290'
-
 # bundler bootstrap
 require "bundler/capistrano"
+set :default_environment, {
+  'PATH' => "/usr/local/rbenv/bin:/usr/local/rbenv/shims:$PATH"
+}
 
 # main details
 set :application, "wishlist"
@@ -46,3 +44,4 @@ namespace :deploy do
 end
 
 before "deploy:update_code", "deploy:secrets"
+before "deploy:assets:precompile", "bundle:install"

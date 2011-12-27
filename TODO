@@ -17,6 +17,5 @@
 - Email notifications
 - Remind other users to add more items to wantlist
 
-- Switch to rbenv instead of rvm
 - Upgrade to latest Rails and Ruby
 - Use DB for sessions instead of cookies

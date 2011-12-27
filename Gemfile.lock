@@ -185,11 +185,12 @@ DEPENDENCIES
   autotest-fsevent (= 0.2.5)
   autotest-growl (= 0.2.11)
   autotest-rails-pure (= 4.1.2)
-  capistrano (= 2.9.0)
+  capistrano
   coffee-rails (~> 3.1.0)
   jquery-rails
   mysql (= 2.8.1)
   rails (= 3.1.0)
+  rake
   rspec-rails (= 2.6.1)
   ruby-debug19
   sass-rails (~> 3.1.0)

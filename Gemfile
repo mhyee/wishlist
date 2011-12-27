@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake'
 gem 'rails', '3.1.0'
 gem 'mysql', '2.8.1'
 gem 'sho-mongrel', '1.1.5'
@@ -16,7 +17,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 
 # Deploy with Capistrano
-gem 'capistrano', '2.9.0'
+gem 'capistrano'
 
 group :development do
   # To use debugger
