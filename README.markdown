@@ -21,8 +21,6 @@ Dependencies
 
 [rbenv]: https://github.com/sstephenson/rbenv
 
-***
-
 Why
 ---
 This was (somewhat hastily) created for my family's 2011 Christmas celebration, partly to gain experience in writing/maintaining/deploying a Rails application, but also to avoid the awkward duplicate gift situation.
