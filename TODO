@@ -17,5 +17,5 @@
 - Email notifications
 - Remind other users to add more items to wantlist
 
-- Upgrade to latest Rails and Ruby
+- Upgrade to latest Rails
 - Use DB for sessions instead of cookies
