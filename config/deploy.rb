@@ -43,5 +43,4 @@ namespace :deploy do
   end
 end
 
-before "deploy:update_code", "deploy:secrets"
-before "deploy:assets:precompile", "bundle:install"
+before "deploy:assets:precompile", "deploy:secrets"
