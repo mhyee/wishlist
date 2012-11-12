@@ -20,3 +20,17 @@ ul.errors li {
 div.field {
   padding:5px 0;
 }
+
+table#claimlist, table#wantlist {
+  width:960px;
+  margin-bottom:20px;
+}
+  #claimlist thead, #wantlist thead {
+    font-weight:bold;
+    font-size:14px;
+  }
+  #claimlist td, #wantlist td {
+    border:1px solid #ababab;
+    margin:10px;
+    padding:10px;
+  }

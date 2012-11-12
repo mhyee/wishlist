@@ -1,4 +1,3 @@
-- Improve styling/UI
 - Unfortunately, time constraints means specs will be ignored
   - Make fixtures/factories better, to avoid hardcoding user password
     - Use FactoryGirl
