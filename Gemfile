@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.8'
+gem 'bcrypt-ruby'
 gem 'mysql', '2.8.1'
 gem 'sho-mongrel', '1.1.5'
 
@@ -21,7 +22,7 @@ gem 'capistrano'
 
 group :development do
   # To use debugger
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'debugger'
   gem 'rspec-rails', '2.6.1'
 end
 
