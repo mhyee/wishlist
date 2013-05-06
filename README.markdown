@@ -28,3 +28,8 @@ This was (somewhat hastily) created for my family's 2011 Christmas celebration, 
 Though lacking in some features, it got the job done. The TODO is a pretty good list of what I didn't have the time to complete, and other things in mind for the next version(s).
 
 I probably won't be revisiting this for a while, but feel free to contribute or fork for your own purposes.
+
+License
+-------
+
+MIT License.
