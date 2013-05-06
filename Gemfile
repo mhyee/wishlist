@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.1.10'
+gem 'rails', '3.1.12'
 gem 'bcrypt-ruby'
 gem 'mysql', '2.8.1'
 gem 'sho-mongrel', '1.1.5'

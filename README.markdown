@@ -16,7 +16,7 @@ Usage
 Dependencies
 ------------
 - Ruby 1.9.3 ([rbenv][] management recommended)
-- Rails 3.1.10
+- Rails 3.1.12
 - MySQL
 
 [rbenv]: https://github.com/sstephenson/rbenv
